@@ -74,13 +74,13 @@ cd fluxgui
 python download-xflux.py
 
 # EITHER install system wide
-sudo python setup.py install
+sudo python setup.py install --record file_install.txt
 
 # EXCLUSIVE OR, install in your home directory. The binary installs
 # into ~/.local/bin, so be sure to add that to your PATH if installing
 # locally. In particular, autostarting fluxgui in Gnome will not work
 # if the locally installed fluxgui is not on your PATH.
-python setup.py install --user
+python setup.py install --user --record file_install.txt
        
 # Run flux
 fluxgui
@@ -94,12 +94,10 @@ removing the installed files.
 
 ```bash
 # EITHER uninstall globally
-sudo python setup.py install --record installed.txt
-sudo xargs rm -vr < installed.txt
+sudo xargs rm -vr < file_install.txt
 
 # EXCLUSIVE OR uinstall in your home directory
-python setup.py install --user --record installed.txt
-xargs rm -vr < installed.txt
+xargs rm -vr < file_install.txt
 ```
 
 License
